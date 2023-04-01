@@ -35,6 +35,9 @@ class Automata:
             print(state.is_final)
             print("\n")
 
+    def reset_inital_state(self):
+        self.cur_state = self.return_initial_state()
+
     def return_initial_state(self):
         for state in self.all_states:
             if state.is_initial:

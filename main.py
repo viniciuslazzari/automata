@@ -32,33 +32,36 @@ def main():
 
     automata.create(states, transistions, initial, finals)
 
-    mode = input("Read input from terminal (1) or file (2): ")
-    flag = 1
-    text = '0'
+    while True:
+        mode = input("Read input from terminal (1) or file (2): ")
+        flag = 1
+        text = '0'
+        
+        automata.reset_inital_state()
 
-    if mode == "1":
-        while text != "" and flag not in [2, 3]:
-            text = input()
+        if mode == "1":
+            while text != "" and flag not in [2, 3]:
+                text = input()
 
-            if text == "": continue
+                if text == "": continue
 
-            flag = automata.run_step(text)
+                flag = automata.run_step(text)
 
-        print(automata_returns[flag])
-    elif mode == "2":
-        lines = []
+            print(automata_returns[flag])
+        elif mode == "2":
+            lines = []
 
-        with open('test.txt') as f:
-            lines = f.read().splitlines() 
+            with open('test.txt') as f:
+                lines = f.read().splitlines() 
 
-        for line in lines:
-            if line == "" or flag in [2, 3]: break
+            for line in lines:
+                if line == "" or flag in [2, 3]: break
 
-            flag = automata.run_step(line)
+                flag = automata.run_step(line)
 
-        print(automata_returns[flag])
-    else:
-        print("Invalid mode!")
+            print(automata_returns[flag])
+        else:
+            break
 
 if __name__ == "__main__":
     main()
