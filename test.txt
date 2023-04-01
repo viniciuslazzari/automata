@@ -1,0 +1,8 @@
+tiradoGancho
+1
+2
+g
+5
+5
+liga
+
